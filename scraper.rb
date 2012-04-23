@@ -9,14 +9,20 @@ def game_free?(media)
   return false
 end
 
-doc = JSON.parse(open('http://www.mlb.com/gdcross/components/game/mlb/year_2012/month_04/day_17/grid.json').open.read)
+link = 'http://www.mlb.com/gdcross/components/game/mlb/year_' + Time.now.year.to_s + '/month_'+ Time.now.strftime("%m") + '/day_' + Time.now.strftime("%d") + '/grid.json'
+
+puts link
+doc = JSON.parse(open(link).open.read)
 
 games = doc['data']['games']['game']
 free = []
 games.each do |game|
-  media = game['game_media']['homebase']['media']
-  if game_free?(media)
-    free << {time: game['event_time'], away_team: game['away_team_name'], home_team: game['home_team_name']}
+  begin
+    media = game['game_media']['homebase']['media']
+    if game_free?(media)
+      free << {time: game['event_time'], away_team: game['away_team_name'], home_team: game['home_team_name']}
+    end
+  rescue Exception => e
   end
 end
 

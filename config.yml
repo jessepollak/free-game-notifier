@@ -1,0 +1,6 @@
+---
+mongo:
+  port: 27035
+  host: flame.mongohq.com
+  user: jesse
+  password: password

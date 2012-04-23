@@ -1,0 +1,45 @@
+!!! 5
+%html
+  %head
+    %link{:rel => "stylesheet", :href => "css/bootstrap.min.css", :type => "text/css"}
+    :css
+      form {
+      }
+  %body
+    .container
+      .row
+        .span8.offset2
+          %form.well.form-inline{action: "/contact", method: "post"}
+            %input{type: "text", name: "email", class: "input-large"}
+            %select{name: "team"}
+              %option Orioles
+              %option Red Sox
+              %option Yankees
+              %option Rays
+              %option Blue Jays
+              %option Braves
+              %option Marlins
+              %option Mets
+              %option Phillies
+              %option Nationals
+              %option White Sox
+              %option Indians
+              %option Tigers
+              %option Royals
+              %option Twins
+              %option Cubs
+              %option Reds
+              %option Astros
+              %option Brewers
+              %option Pirates
+              %option Cardinals
+              %option Angels
+              %option Athletics
+              %option Mariners
+              %option Rangers
+              %option Diamondbacks
+              %option Rockies
+              %option Dodgers
+              %option Padres
+              %option Giants
+            %button{type: "submit", class: "btn"}Remind me!
