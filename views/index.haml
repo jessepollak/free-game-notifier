@@ -1,45 +1,66 @@
 !!! 5
 %html
   %head
-    %link{:rel => "stylesheet", :href => "css/bootstrap.min.css", :type => "text/css"}
+    %script{src: "http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js", type: "text/javascript"}
+    %script{src: "http://malsup.github.com/jquery.form.js", type: "text/javascript"}
+    %link{rel: "stylesheet", href: "css/bootstrap.min.css", type: "text/css"}
     :css
-      form {
+      .span8.offset2.well{
+        margin-top: 200px;
+        height: 30px;
       }
+      .form-container {
+        margin-left: 30px;
+      }
+      .thanks {
+        text-align: center;
+        line-height: 30px;
+      }
+    :javascript
+      $(document).ready(function() { 
+          // bind 'myForm' and provide a simple callback function 
+          $('form').ajaxForm(function() { 
+              $('.form-container').fadeOut(1000, function() {
+                $(this).html("<p class='thanks'>We'll shoot you an email as soon as your team is on MLB.tv for free!</p>").fadeIn(1000);
+              });
+          }); 
+      });
   %body
     .container
       .row
-        .span8.offset2
-          %form.well.form-inline{action: "/contact", method: "post"}
-            %input{type: "text", name: "email", class: "input-large"}
-            %select{name: "team"}
-              %option Orioles
-              %option Red Sox
-              %option Yankees
-              %option Rays
-              %option Blue Jays
-              %option Braves
-              %option Marlins
-              %option Mets
-              %option Phillies
-              %option Nationals
-              %option White Sox
-              %option Indians
-              %option Tigers
-              %option Royals
-              %option Twins
-              %option Cubs
-              %option Reds
-              %option Astros
-              %option Brewers
-              %option Pirates
-              %option Cardinals
-              %option Angels
-              %option Athletics
-              %option Mariners
-              %option Rangers
-              %option Diamondbacks
-              %option Rockies
-              %option Dodgers
-              %option Padres
-              %option Giants
-            %button{type: "submit", class: "btn"}Remind me!
+        .span8.offset2.well
+          .form-container
+            %form.form-inline{action: "/contact", method: "post"}
+              %input{type: "text", name: "email", class: "input-large"}
+              %select{name: "team"}
+                %option Orioles
+                %option Red Sox
+                %option Yankees
+                %option Rays
+                %option Blue Jays
+                %option Braves
+                %option Marlins
+                %option Mets
+                %option Phillies
+                %option Nationals
+                %option White Sox
+                %option Indians
+                %option Tigers
+                %option Royals
+                %option Twins
+                %option Cubs
+                %option Reds
+                %option Astros
+                %option Brewers
+                %option Pirates
+                %option Cardinals
+                %option Angels
+                %option Athletics
+                %option Mariners
+                %option Rangers
+                %option Diamondbacks
+                %option Rockies
+                %option Dodgers
+                %option Padres
+                %option Giants
+              %button{type: "submit", class: "btn"}Remind me!
