@@ -1,6 +1,13 @@
 ---
+token: Q50ojqZBOKNvdpX8gOmh5HCs-G4
+project_id: 4f7e73cc44f6405c4e0041a0
 mongo:
   port: 27035
   host: flame.mongohq.com
   user: jesse
   password: password
+email:
+  username: freegamenotifier@gmail.com
+  password: nationalsarethebest
+  from: freegamenotifier@gmail.com
+  domain: gmail.com

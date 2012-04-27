@@ -5,16 +5,41 @@
     %script{src: "http://malsup.github.com/jquery.form.js", type: "text/javascript"}
     %link{rel: "stylesheet", href: "css/bootstrap.min.css", type: "text/css"}
     :css
-      .span8.offset2.well{
+      body {
+        background: url("images/MLBlogo.jpg") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+      .span8.offset2{
+        background: rgba(0,0,0,.75);
         margin-top: 200px;
-        height: 30px;
+        height: 300px;
+        border-radius: 5px;
       }
       .form-container {
-        margin-left: 30px;
+        margin-top: 40px;
+        height: 30px;
+        margin-left: 40px;
       }
       .thanks {
         text-align: center;
         line-height: 30px;
+        color: white;
+      }
+      .info {
+        width: 80%;
+        margin: 20px 0 0 40px;
+      }
+      h2,p {
+        text-align: center
+      }
+      .footer {
+        margin-top: 40px;
+      }
+      .footer p {
+        color: #DDD;
       }
     :javascript
       $(document).ready(function() { 
@@ -28,39 +53,45 @@
   %body
     .container
       .row
-        .span8.offset2.well
+        .shit
+        .span8.offset2
+          .info.well
+            %h2 MLB.tv Free Game of the Day Notification
+            %p Get an email notification when your favorite team is on the MLB.tv Free Game of the Day!
           .form-container
             %form.form-inline{action: "/contact", method: "post"}
-              %input{type: "text", name: "email", class: "input-large"}
+              %input{type: "text", placeholder: "Email", name: "email", class: "input-large"}
               %select{name: "team"}
-                %option Orioles
-                %option Red Sox
-                %option Yankees
-                %option Rays
+                %option Angels
+                %option Astros
+                %option Athletics
                 %option Blue Jays
                 %option Braves
+                %option Brewers
+                %option Cardinals
+                %option Cubs
+                %option Diamondbacks
+                %option Dodgers
+                %option Giants
+                %option Indians
+                %option Mariners
                 %option Marlins
                 %option Mets
-                %option Phillies
                 %option Nationals
-                %option White Sox
-                %option Indians
-                %option Tigers
-                %option Royals
-                %option Twins
-                %option Cubs
-                %option Reds
-                %option Astros
-                %option Brewers
-                %option Pirates
-                %option Cardinals
-                %option Angels
-                %option Athletics
-                %option Mariners
-                %option Rangers
-                %option Diamondbacks
-                %option Rockies
-                %option Dodgers
+                %option Orioles
                 %option Padres
-                %option Giants
+                %option Phillies
+                %option Pirates
+                %option Rangers
+                %option Rays
+                %option Red Sox
+                %option Reds
+                %option Royals
+                %option Rockies
+                %option Tigers
+                %option Twins
+                %option White Sox
+                %option Yankees
               %button{type: "submit", class: "btn"}Remind me!
+          .footer
+            %p created by <a href="http://twitter.com/jessepollak">@jessepollak</a>

@@ -4,7 +4,7 @@ require 'active_support/core_ext'
 
 load 'notifications_worker.rb'
 
-config_data = YAML.load_file('config.yml')
+config_data = YAML.load_file('../config.yml')
 
 IronWorker.configure do |config|
   config.token = config_data['token']
@@ -17,5 +17,11 @@ worker.mongo_host = config_data['mongo']['host']
 worker.mongo_db_name = config_data['mongo']['db_name']
 worker.mongo_user = config_data['mongo']['user']
 worker.mongo_password = config_data['mongo']['password']
+worker.email_domain = config_data['email']['domain']
+worker.username = config_data['email']['username']
+worker.password = config_data['email']['password']
+worker.from = config_data['email']['from']
+
+worker.run_local
 
 #worker.schedule fill this out
