@@ -15,5 +15,5 @@ post '/contact' do
   db.authenticate(config_data['mongo']['user'], config_data['mongo']['password'])
   coll = db['Users']
   user = {"email" => params[:email], "team" => params[:team]}
-  #coll.insert(user)
+  coll.insert(user)
 end
