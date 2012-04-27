@@ -2,9 +2,9 @@ require 'iron_worker'
 require 'yaml'
 require 'active_support/core_ext'
 
-load 'notifications_worker.rb'
+load 'workers/notifications_worker.rb'
 
-config_data = YAML.load_file('../config.yml')
+config_data = YAML.load_file('config.yml')
 
 IronWorker.configure do |config|
   config.token = config_data['token']
@@ -22,6 +22,4 @@ worker.username = config_data['email']['username']
 worker.password = config_data['email']['password']
 worker.from = config_data['email']['from']
 
-worker.run_local
-
-#worker.schedule fill this out
+worker.schedule(:start_at => (Time.now + 60*60*8), :run_every => 60*60*24)
